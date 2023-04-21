@@ -1,0 +1,80 @@
+@import "variables";
+@import "breakpoints";
+
+body {
+    background: $background;
+    color: $text;
+    font-family: $textFont;
+}
+
+header,
+section,
+.nav-contents {
+    max-width: 1366px;
+    margin-inline: auto;
+    padding: $padding;
+
+    @include media("<desktop") {
+        padding: $paddingMob;
+        max-width: 100%;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: $text;
+}
+
+h1,
+h2,
+h3 {
+    font-family: $header;
+}
+
+h1,
+h2 {
+    font-size: 5rem;
+
+    @include media("<desktop") {
+        font-size: 3rem;
+    }
+}
+
+@include media("<desktop") {
+    h2 {
+        font-size: 4rem;
+    }
+}
+
+h3 {
+    font-size: 2.5rem;
+
+    @include media("<desktop") {
+        font-size: 2.5rem;
+    }
+}
+
+.code {
+    --margin: 1rem;
+    margin-left: 1rem;
+    display: block;
+
+    &:before,
+    &::after {
+        color: $accent;
+        font-family: $code;
+        font-size: 1rem;
+        display: block;
+        margin-left: -1rem;
+    }
+
+    &:before {
+        content: "seção() {";
+        margin-bottom: var(--margin);
+    }
+
+    &:after {
+        content: "}";
+        margin-top: var(--margin);
+    }
+}
